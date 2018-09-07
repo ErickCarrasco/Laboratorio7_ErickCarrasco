@@ -21,13 +21,18 @@ public class Persona implements Serializable{
     private String password;
     private String sexo;
     private String premium;
-    private ArrayList <String> mensajes = new ArrayList();
-    private ArrayList <String> solicitudes = new ArrayList();
-    private ArrayList <String> blocked = new ArrayList();
+    private String descripzione;
+    private ArrayList  mensajes = new ArrayList();
+    private ArrayList <Persona> solicitudes = new ArrayList();
+    private ArrayList <Persona> blocked = new ArrayList();
+    private ArrayList intereses = new ArrayList();
+    private ArrayList <Persona> amigos = new ArrayList();
+    private ArrayList <Persona> interesados = new ArrayList();
+    private ArrayList <Calendario> citas = new ArrayList();
     
     private static final long SerialVersionUID =7899L;
 
-    public Persona(String nombre, int edad, Icon fotografia, String user, String password, String sexo, String premium) {
+    public Persona(String nombre, int edad, Icon fotografia, String user, String password, String sexo, String premium, String descripzione) {
         this.nombre = nombre;
         this.edad = edad;
         this.fotografia = fotografia;
@@ -35,6 +40,7 @@ public class Persona implements Serializable{
         this.password = password;
         this.sexo = sexo;
         this.premium = premium;
+        this.descripzione= descripzione;
     }
 
     public String getNombre() {
@@ -97,25 +103,68 @@ public class Persona implements Serializable{
         return mensajes;
     }
 
-    public void setMensajes(ArrayList<String> mensajes) {
+    public ArrayList<Calendario> getCitas() {
+        return citas;
+    }
+
+    public void setCitas(ArrayList<Calendario> citas) {
+        this.citas = citas;
+    }
+
+
+    public void setMensajes(ArrayList mensajes) {
         this.mensajes = mensajes;
     }
 
-    public ArrayList<String> getSolicitudes() {
+    public ArrayList<Persona> getSolicitudes() {
         return solicitudes;
     }
 
-    public void setSolicitudes(ArrayList<String> solicitudes) {
+    public void setSolicitudes(ArrayList<Persona> solicitudes) {
         this.solicitudes = solicitudes;
     }
 
-    public ArrayList<String> getBlocked() {
+    public ArrayList<Persona> getBlocked() {
         return blocked;
     }
 
-    public void setBlocked(ArrayList<String> blocked) {
+    public void setBlocked(ArrayList<Persona> blocked) {
         this.blocked = blocked;
     }
+
+    public ArrayList getIntereses() {
+        return intereses;
+    }
+
+    public void setIntereses(ArrayList intereses) {
+        this.intereses = intereses;
+    }
+
+    public ArrayList<Persona> getAmigos() {
+        return amigos;
+    }
+
+    public void setAmigos(ArrayList<Persona> amigos) {
+        this.amigos = amigos;
+    }
+
+    public ArrayList<Persona> getInteresados() {
+        return interesados;
+    }
+
+    public void setInteresados(ArrayList<Persona> interesados) {
+        this.interesados = interesados;
+    }
+
+    public String getDescripzione() {
+        return descripzione;
+    }
+
+    public void setDescripzione(String descripzione) {
+        this.descripzione = descripzione;
+    }
+
+    
     
     @Override
     public String toString() {
