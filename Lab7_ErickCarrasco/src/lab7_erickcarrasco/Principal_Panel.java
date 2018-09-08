@@ -54,6 +54,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_log = new javax.swing.JTextArea();
         boton_logout = new javax.swing.JButton();
+        jb_main_modify = new javax.swing.JButton();
         jp_add = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_personas_actuales = new javax.swing.JList();
@@ -115,6 +116,14 @@ public class Principal_Panel extends javax.swing.JFrame {
         jb_crear_cc = new javax.swing.JButton();
         jScrollPane14 = new javax.swing.JScrollPane();
         lista_cc = new javax.swing.JList();
+        jd_modify = new javax.swing.JDialog();
+        jLabel28 = new javax.swing.JLabel();
+        jb_modify_name = new javax.swing.JButton();
+        jb_modify_age = new javax.swing.JButton();
+        jb_modify_username = new javax.swing.JButton();
+        jb_modify_description = new javax.swing.JButton();
+        jb_modify_image = new javax.swing.JButton();
+        jb_modify_exit = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -173,6 +182,13 @@ public class Principal_Panel extends javax.swing.JFrame {
             }
         });
 
+        jb_main_modify.setText("Modify");
+        jb_main_modify.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_main_modifyMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jt_inicioLayout = new javax.swing.GroupLayout(jt_inicio);
         jt_inicio.setLayout(jt_inicioLayout);
         jt_inicioLayout.setHorizontalGroup(
@@ -185,13 +201,14 @@ public class Principal_Panel extends javax.swing.JFrame {
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addGroup(jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(boton_logout)
                             .addGroup(jt_inicioLayout.createSequentialGroup()
                                 .addComponent(lb_icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(86, 86, 86)
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jb_main_modify)
+                            .addComponent(boton_logout, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jt_inicioLayout.setVerticalGroup(
@@ -205,9 +222,11 @@ public class Principal_Panel extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(lb_icon2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14))
-                .addGap(59, 59, 59)
+                .addGap(123, 123, 123)
+                .addComponent(jb_main_modify)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(boton_logout)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tab_loggedin.addTab("Inicio", jt_inicio);
@@ -501,7 +520,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         jl_interests.setModel(new DefaultListModel());
         jScrollPane16.setViewportView(jl_interests);
 
-        jButton1.setText("Ver");
+        jButton1.setText("Agregar");
 
         javax.swing.GroupLayout interesesLayout = new javax.swing.GroupLayout(intereses);
         intereses.setLayout(interesesLayout);
@@ -515,7 +534,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                         .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(71, 71, 71)
                         .addComponent(jButton1)))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         interesesLayout.setVerticalGroup(
             interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -675,6 +694,95 @@ public class Principal_Panel extends javax.swing.JFrame {
                         .addComponent(jb_crear_cc))
                     .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(103, Short.MAX_VALUE))
+        );
+
+        jLabel28.setFont(new java.awt.Font("Eurostile Extended", 3, 24)); // NOI18N
+        jLabel28.setText("Modify");
+
+        jb_modify_name.setText("Name");
+        jb_modify_name.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_nameMouseClicked(evt);
+            }
+        });
+
+        jb_modify_age.setText("Age");
+        jb_modify_age.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_ageMouseClicked(evt);
+            }
+        });
+
+        jb_modify_username.setText("User name");
+        jb_modify_username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_usernameMouseClicked(evt);
+            }
+        });
+
+        jb_modify_description.setText("Description");
+        jb_modify_description.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_descriptionMouseClicked(evt);
+            }
+        });
+
+        jb_modify_image.setText("Image");
+        jb_modify_image.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_imageMouseClicked(evt);
+            }
+        });
+
+        jb_modify_exit.setText("Exit");
+        jb_modify_exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_modify_exitMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_modifyLayout = new javax.swing.GroupLayout(jd_modify.getContentPane());
+        jd_modify.getContentPane().setLayout(jd_modifyLayout);
+        jd_modifyLayout.setHorizontalGroup(
+            jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modifyLayout.createSequentialGroup()
+                .addGap(162, 162, 162)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jd_modifyLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jb_modify_description, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_modify_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jb_modify_age, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jb_modify_image, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jb_modify_username)
+                .addGap(91, 91, 91))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_modifyLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_modify_exit)
+                .addContainerGap())
+        );
+        jd_modifyLayout.setVerticalGroup(
+            jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_modifyLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28)
+                .addGap(34, 34, 34)
+                .addGroup(jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_modify_name)
+                    .addComponent(jb_modify_age)
+                    .addComponent(jb_modify_username))
+                .addGap(89, 89, 89)
+                .addGroup(jd_modifyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_modify_description)
+                    .addComponent(jb_modify_image))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addComponent(jb_modify_exit)
+                .addGap(22, 22, 22))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1356,13 +1464,15 @@ public class Principal_Panel extends javax.swing.JFrame {
         DefaultListModel m1 = (DefaultListModel) lista_cc.getModel();
             m1.removeAllElements();
             aP.cargarArchivo();
-            //   for (Usuarios t : ap.getListaUsuarios()) {
+            
             DateFormat d = new SimpleDateFormat("dd/MM/YYYY");
+            
+            
             String useronuse= aP.getListaPersonas().get(countglobal).getUser();
             for (int i = 0; i < aP.getListaPersonas().size(); i++) {
                 String userv= aP.getListaPersonas().get(i).getUser();
                 if (userv.equals(useronuse)) {
-                    aP.getListaPersonas().get(i).getCitas().add(new Calendario(d.format(fecha.getDate()), (Persona) m1.get(i), tf_lugar_cc.getText()));
+                    aP.getListaPersonas().get(i).getCitas().add(new Calendario(d.format(d.getDate()), (Persona) m1.get(i), tf_lugar_cc.getText()));
                 }
             }
             aP.escribirArchivo();
@@ -1446,6 +1556,75 @@ public class Principal_Panel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_blockuserMouseClicked
 
+    private void jb_main_modifyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_main_modifyMouseClicked
+        // TODO add your handling code here:
+        jd_modify.setModal(true);
+        jd_modify.pack();
+        jd_modify.setLocationRelativeTo(jd_loggedin);
+        jd_modify.setVisible(true);
+    }//GEN-LAST:event_jb_main_modifyMouseClicked
+
+    private void jb_modify_exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_exitMouseClicked
+        // TODO add your handling code here:
+        jd_modify.dispose();
+        jd_modify.setVisible(false);
+    }//GEN-LAST:event_jb_modify_exitMouseClicked
+
+    private void jb_modify_nameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_nameMouseClicked
+        // TODO add your handling code here:
+        String newname = JOptionPane.showInputDialog(jd_modify, "Ingrese un nuevo nombre");
+        aP.cargarArchivo();
+        aP.getListaPersonas().get(countglobal).setNombre(newname);
+        aP.escribirArchivo();
+        JOptionPane.showMessageDialog(jd_modify, "Fully modified");
+    }//GEN-LAST:event_jb_modify_nameMouseClicked
+
+    private void jb_modify_ageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_ageMouseClicked
+        // TODO add your handling code here:
+        int newage = Integer.parseInt(JOptionPane.showInputDialog(jd_modify, "Ingrese una nueva edad"));
+        aP.cargarArchivo();
+        aP.getListaPersonas().get(countglobal).setEdad(newage);
+        aP.escribirArchivo();
+        JOptionPane.showMessageDialog(jd_modify, "Fully modified");
+    }//GEN-LAST:event_jb_modify_ageMouseClicked
+
+    private void jb_modify_usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_usernameMouseClicked
+        // TODO add your handling code here:
+        String newusername = JOptionPane.showInputDialog(jd_modify, "Ingrese un nuevo username");
+        aP.cargarArchivo();
+        aP.getListaPersonas().get(countglobal).setUser(newusername);
+        aP.escribirArchivo();
+        JOptionPane.showMessageDialog(jd_modify, "Fully modified");
+    }//GEN-LAST:event_jb_modify_usernameMouseClicked
+
+    private void jb_modify_descriptionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_descriptionMouseClicked
+        // TODO add your handling code here:
+        String newdescription = JOptionPane.showInputDialog(jd_modify, "Ingrese una nueva descripcion");
+        aP.cargarArchivo();
+        aP.getListaPersonas().get(countglobal).setDescripzione(newdescription);
+        aP.escribirArchivo();
+        JOptionPane.showMessageDialog(jd_modify, "Fully modified");
+    }//GEN-LAST:event_jb_modify_descriptionMouseClicked
+
+    private void jb_modify_imageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_modify_imageMouseClicked
+        // TODO add your handling code here:
+        aP.cargarArchivo();
+        JFileChooser fc = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Imagenes", 
+                        "png", "jpg", "jpeg");
+        fc.setFileFilter(filtro);
+        File archivo;
+        int op = fc.showOpenDialog(this);
+        if (op== JFileChooser.APPROVE_OPTION) {
+            archivo = fc.getSelectedFile();
+            Image img = Toolkit.getDefaultToolkit().createImage(
+                            archivo.getPath()).getScaledInstance(100, 100, 0);
+            
+            aP.getListaPersonas().get(countglobal).setFotografia(new ImageIcon(img));
+            aP.escribirArchivo();
+        }
+    }//GEN-LAST:event_jb_modify_imageMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1511,6 +1690,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel46;
@@ -1543,12 +1723,20 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JButton jb_createdate;
     private javax.swing.JButton jb_enviarMensaje;
     private javax.swing.JButton jb_login_log;
+    private javax.swing.JButton jb_main_modify;
+    private javax.swing.JButton jb_modify_age;
+    private javax.swing.JButton jb_modify_description;
+    private javax.swing.JButton jb_modify_exit;
+    private javax.swing.JButton jb_modify_image;
+    private javax.swing.JButton jb_modify_name;
+    private javax.swing.JButton jb_modify_username;
     private javax.swing.JButton jb_mostrar_data;
     private javax.swing.JButton jb_mover_lista;
     private javax.swing.JButton jb_register;
     private javax.swing.JButton jb_seleccionar;
     private javax.swing.JDialog jd_citas;
     private javax.swing.JDialog jd_loggedin;
+    private javax.swing.JDialog jd_modify;
     private javax.swing.JLabel jl_Nombre;
     private javax.swing.JList jl_amigos_actuales;
     private javax.swing.JList jl_interests;
