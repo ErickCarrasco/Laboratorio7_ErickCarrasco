@@ -5,14 +5,17 @@
  */
 package lab7_erickcarrasco;
 
+import java.io.Serializable;
+
 /**
  *
  * @author erick
  */
-public class Calendario {
+public class Calendario implements Serializable{
     private String fecha;
     private Persona persona;
     private String lugar;
+    private static final long SerialVersionUTD = 777L;
 
     public Calendario() {
     }
@@ -49,7 +52,7 @@ public class Calendario {
 
     @Override
     public String toString() {
-        return "Cita: " + "fecha: " + fecha + " persona: " + persona + " lugar: " + lugar + '}';
+        return persona.getNombre();
     }
     
     

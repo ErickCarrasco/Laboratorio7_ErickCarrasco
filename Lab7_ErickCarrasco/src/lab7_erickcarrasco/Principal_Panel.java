@@ -9,9 +9,12 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileFilter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -78,7 +81,15 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jb_mostrar_data = new javax.swing.JButton();
         block = new javax.swing.JPanel();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        Block = new javax.swing.JList();
+        jLabel26 = new javax.swing.JLabel();
+        jb_blockuser = new javax.swing.JButton();
         jp_dates = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        lista_calendario = new javax.swing.JList<String>();
+        jLabel24 = new javax.swing.JLabel();
+        jb_createdate = new javax.swing.JButton();
         intereses = new javax.swing.JPanel();
         mensaje = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
@@ -93,6 +104,13 @@ public class Principal_Panel extends javax.swing.JFrame {
         jb_enviarMensaje = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         mensaje_leer = new javax.swing.JTextArea();
+        jd_citas = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        tf_lugar_cc = new javax.swing.JTextField();
+        jb_crear_cc = new javax.swing.JButton();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        lista_cc = new javax.swing.JList();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -185,7 +203,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addGap(59, 59, 59)
                 .addComponent(boton_logout)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Inicio", jt_inicio);
@@ -241,7 +259,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                         .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Agregar Amigos", jp_add);
@@ -318,7 +336,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
-                            .addComponent(lb_icon3, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                            .addComponent(lb_icon3, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
                         .addGap(87, 87, 87))
                     .addGroup(jp_infopeopleLayout.createSequentialGroup()
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -378,33 +396,98 @@ public class Principal_Panel extends javax.swing.JFrame {
                             .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                                 .addGap(123, 123, 123)
                                 .addComponent(jb_mostrar_data)))))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Lista de personas", jp_allpeopleinfo);
+
+        Block.setModel(new DefaultListModel());
+        jScrollPane15.setViewportView(Block);
+
+        jLabel26.setText("USERS");
+
+        jb_blockuser.setText("bloquear");
+        jb_blockuser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_blockuserMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout blockLayout = new javax.swing.GroupLayout(block);
         block.setLayout(blockLayout);
         blockLayout.setHorizontalGroup(
             blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
+            .addGroup(blockLayout.createSequentialGroup()
+                .addGroup(blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(blockLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(107, 107, 107)
+                        .addComponent(jb_blockuser))
+                    .addGroup(blockLayout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(jLabel26)))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         blockLayout.setVerticalGroup(
             blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addGroup(blockLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(jLabel26)
+                .addGroup(blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(blockLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(blockLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jb_blockuser)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Bloquear ", block);
+
+        lista_calendario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lista_calendario.setModel(new DefaultListModel());
+        jScrollPane13.setViewportView(lista_calendario);
+
+        jLabel24.setText("Calendario");
+
+        jb_createdate.setText("Crear CIta");
+        jb_createdate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_createdateMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jp_datesLayout = new javax.swing.GroupLayout(jp_dates);
         jp_dates.setLayout(jp_datesLayout);
         jp_datesLayout.setHorizontalGroup(
             jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
+            .addGroup(jp_datesLayout.createSequentialGroup()
+                .addGroup(jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_datesLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(jb_createdate))
+                    .addGroup(jp_datesLayout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel24)))
+                .addContainerGap(266, Short.MAX_VALUE))
         );
         jp_datesLayout.setVerticalGroup(
             jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_datesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24)
+                .addGroup(jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_datesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jp_datesLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(jb_createdate)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         tab_loggedin.addTab("Calendario", jp_dates);
@@ -417,7 +500,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         );
         interesesLayout.setVerticalGroup(
             interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 347, Short.MAX_VALUE)
+            .addGap(0, 404, Short.MAX_VALUE)
         );
 
         tab_loggedin.addTab("Intereses", intereses);
@@ -490,7 +573,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                             .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addComponent(jb_enviarMensaje)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Mensajes", mensaje);
@@ -508,8 +591,60 @@ public class Principal_Panel extends javax.swing.JFrame {
             jd_loggedinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jd_loggedinLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tab_loggedin, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tab_loggedin)
+                .addContainerGap())
+        );
+
+        jLabel25.setFont(new java.awt.Font("Eurostile Extended", 0, 18)); // NOI18N
+        jLabel25.setText("Crear Cita");
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel46.setText("Lugar");
+
+        jb_crear_cc.setText("Crear");
+        jb_crear_cc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_crear_ccMouseClicked(evt);
+            }
+        });
+
+        lista_cc.setModel(new DefaultListModel());
+        jScrollPane14.setViewportView(lista_cc);
+
+        javax.swing.GroupLayout jd_citasLayout = new javax.swing.GroupLayout(jd_citas.getContentPane());
+        jd_citas.getContentPane().setLayout(jd_citasLayout);
+        jd_citasLayout.setHorizontalGroup(
+            jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_citasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel25)
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jb_crear_cc)
+                            .addGroup(jd_citasLayout.createSequentialGroup()
+                                .addComponent(jLabel46)
+                                .addGap(27, 27, 27)
+                                .addComponent(tf_lugar_cc, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(44, Short.MAX_VALUE))
+        );
+        jd_citasLayout.setVerticalGroup(
+            jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_citasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel25)
+                .addGap(18, 18, 18)
+                .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_citasLayout.createSequentialGroup()
+                        .addGroup(jd_citasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel46)
+                            .addComponent(tf_lugar_cc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(100, 100, 100)
+                        .addComponent(jb_crear_cc))
+                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1000,6 +1135,39 @@ public class Principal_Panel extends javax.swing.JFrame {
                 }
             }
         }
+        if (tab_loggedin.getSelectedIndex() == 5) {
+            
+                aP.cargarArchivo();
+                DefaultListModel m1 = (DefaultListModel) lista_calendario.getModel();
+                m1.removeAllElements();
+                String user_onuse= aP.getListaPersonas().get(countglobal).getUser();
+                for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                    String uservalidate = aP.getListaPersonas().get(i).getUser();
+                    if (uservalidate.equals(user_onuse)) {
+                        for (int j = 0; j < aP.getListaPersonas().get(i).getCitas().size(); j++) {
+                            m1.addElement(aP.getListaPersonas().get(i).getCitas().get(j));
+                        }
+                    }
+                }
+                lista_calendario.setModel(m1);
+                aP.escribirArchivo();
+        }
+        
+        if (tab_loggedin.getSelectedIndex() == 4) {
+            
+                aP.cargarArchivo();
+                DefaultListModel m1 = (DefaultListModel) Block.getModel();
+                m1.removeAllElements();
+                boolean validate=false;
+                for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                    if (validate) {
+                        //NO data pressent
+                    } else {
+                        m1.addElement(aP.getListaPersonas().get(i));
+                    }
+                }
+                Block.setModel(m1);
+        }
 
     }//GEN-LAST:event_tab_loggedinStateChanged
 
@@ -1070,10 +1238,29 @@ public class Principal_Panel extends javax.swing.JFrame {
                             tempam.add(((Persona) m.get(jl_personas_actuales.getSelectedIndex())));
                             t.setAmigos(tempam);
                         }
-                        
+
                     }
                     c++;
                 }
+
+                String user2 = ((Persona) m.get(
+                        lista_amigos_mensajes.getSelectedIndex())).getUser();
+                int c2 = 0;
+                int cv = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (uservalidate.equals(user2)) {
+                        cv = c2;
+                    }
+                }
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate=aP.getListaPersonas().get(c).getUser();
+                    if (user2.equals(uservalidate)) {
+                        aP.getListaPersonas().get(cv).getAmigos().add((Persona) aP.getListaPersonas()
+                                                                       .get(countglobal));
+                    }
+                }
+                
                 jl_amigos_actuales.setModel(m2);
                 m.remove(jl_personas_actuales.getSelectedIndex());
                 jl_personas_actuales.setModel(m);
@@ -1118,6 +1305,101 @@ public class Principal_Panel extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jb_enviarMensajeMouseClicked
 
+    private void jb_crear_ccMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_crear_ccMouseClicked
+        // TODO add your handling code here:
+        DefaultListModel m1 = (DefaultListModel) lista_cc.getModel();
+            m1.removeAllElements();
+            aP.cargarArchivo();
+            //   for (Usuarios t : ap.getListaUsuarios()) {
+            DateFormat d = new SimpleDateFormat("dd/MM/YYYY");
+            String useronuse= aP.getListaPersonas().get(countglobal).getUser();
+            for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                String userv= aP.getListaPersonas().get(i).getUser();
+                if (userv.equals(useronuse)) {
+                    aP.getListaPersonas().get(i).getCitas().add(new Calendario(d.format(fecha.getDate()), (Persona) m1.get(i), tf_lugar_cc.getText()));
+                }
+            }
+            aP.escribirArchivo();
+            JOptionPane.showMessageDialog(jd_citas, "Date created");
+            jd_citas.setVisible(false);
+    }//GEN-LAST:event_jb_crear_ccMouseClicked
+
+    private void jb_createdateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_createdateMouseClicked
+        // TODO add your handling code here:
+        try {
+            DefaultListModel m1 = (DefaultListModel) lista_cc.getModel();
+            m1.removeAllElements();
+            aP.cargarArchivo();
+            String useronuse= aP.getListaPersonas().get(countglobal).getUser();
+            for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                String userv= aP.getListaPersonas().get(i).getUser();
+                if (userv.equals(useronuse)) {
+                    for (int j = 0; j < aP.getListaPersonas().get(i).getAmigos().size(); j++) {
+                        m1.addElement(aP.getListaPersonas().get(i).getAmigos().get(i));
+                    }
+                }
+            }
+            aP.escribirArchivo();
+            lista_cc.setModel(m1);
+            jd_citas.setModal(true);
+            jd_citas.pack();
+            jd_citas.setLocationRelativeTo(jd_loggedin);
+            jd_citas.setVisible(true);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_createdateMouseClicked
+
+    private void jb_blockuserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_blockuserMouseClicked
+        // TODO add your handling code here:
+        try {
+            if (Block.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) Block.getModel();
+                String nombre, sexo, usuario, contraseña, descripcione, premium;
+                Icon icono;
+                int edad;
+                nombre = ((Persona) m.get(Block.getSelectedIndex())).getNombre();
+                edad = ((Persona) m.get(Block.getSelectedIndex())).getEdad();
+                icono =((Persona) m.get(Block.getSelectedIndex())).getFotografia();
+                sexo = ((Persona) m.get(Block.getSelectedIndex())).getSexo();
+                usuario = ((Persona) m.get(Block.getSelectedIndex())).getUser();
+                contraseña = ((Persona) m.get(Block.getSelectedIndex())).getPassword();
+                descripcione = ((Persona) m.get(Block.getSelectedIndex())).getDescripzione();
+                premium = ((Persona) m.get(Block.getSelectedIndex())).getPremium();
+                ArrayList intereses1 = new ArrayList();
+                ArrayList<Persona> amigos = new ArrayList();
+                ArrayList<Persona> interesados = new ArrayList();
+                ArrayList mensajes = new ArrayList();
+                ArrayList<Persona> solicitudes = new ArrayList();
+                ArrayList<Persona> Blocked = new ArrayList();
+                ArrayList<Calendario> citas = new ArrayList();
+                Persona p = new Persona(nombre, edad,icono, sexo, usuario, contraseña, descripcione, premium);
+                p.setAmigos(amigos);
+                p.setIntereses(intereses1);
+                p.setInteresados(interesados);
+                p.setMensajes(mensajes);
+                p.setBlocked(Blocked);
+                p.setSolicitudes(solicitudes);
+                p.setCitas(citas);
+                
+                aP.cargarArchivo();
+                String useronuse= aP.getListaPersonas().get(countglobal).getUser();
+                for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                    String userv= aP.getListaPersonas().get(i).getUser();
+                    if (userv.equals(useronuse)) {
+                        aP.getListaPersonas().get(i).getBlocked().add(p);
+                        aP.escribirArchivo();
+                    }
+                }
+                aP.escribirArchivo();
+                m.remove(Block.getSelectedIndex());
+                Block.setModel(m);
+                JOptionPane.showMessageDialog(jd_loggedin, "User has been blocked");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jb_blockuserMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1154,6 +1436,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList Block;
     private javax.swing.JLabel Personas;
     private javax.swing.JPanel block;
     private javax.swing.JButton boton_logout;
@@ -1177,8 +1460,12 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1190,6 +1477,9 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1199,12 +1489,16 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_blockuser;
+    private javax.swing.JButton jb_crear_cc;
+    private javax.swing.JButton jb_createdate;
     private javax.swing.JButton jb_enviarMensaje;
     private javax.swing.JButton jb_login_log;
     private javax.swing.JButton jb_mostrar_data;
     private javax.swing.JButton jb_mover_lista;
     private javax.swing.JButton jb_register;
     private javax.swing.JButton jb_seleccionar;
+    private javax.swing.JDialog jd_citas;
     private javax.swing.JDialog jd_loggedin;
     private javax.swing.JLabel jl_Nombre;
     private javax.swing.JList jl_amigos_actuales;
@@ -1220,6 +1514,8 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel lb_icon2;
     private javax.swing.JLabel lb_icon3;
     private javax.swing.JList lista_amigos_mensajes;
+    private javax.swing.JList<String> lista_calendario;
+    private javax.swing.JList lista_cc;
     private javax.swing.JList lista_mensajes_recibidos;
     private javax.swing.JPanel mensaje;
     private javax.swing.JTextArea mensaje_leer;
@@ -1234,6 +1530,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JTextArea texto_mensaje;
     private javax.swing.JTextField tf_edad1;
     private javax.swing.JTextField tf_login_username;
+    private javax.swing.JTextField tf_lugar_cc;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_registro_nombre;
     private javax.swing.JTextField tf_username_register;
