@@ -78,6 +78,20 @@ public class Principal_Panel extends javax.swing.JFrame {
         jb_mostrar_data = new javax.swing.JButton();
         block = new javax.swing.JPanel();
         jp_dates = new javax.swing.JPanel();
+        intereses = new javax.swing.JPanel();
+        mensaje = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        lista_mensajes_recibidos = new javax.swing.JList();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        lista_amigos_mensajes = new javax.swing.JList();
+        jLabel22 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        texto_mensaje = new javax.swing.JTextArea();
+        jLabel23 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        mensaje_leer = new javax.swing.JTextArea();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -381,6 +395,87 @@ public class Principal_Panel extends javax.swing.JFrame {
         );
 
         tab_loggedin.addTab("Calendario", jp_dates);
+
+        javax.swing.GroupLayout interesesLayout = new javax.swing.GroupLayout(intereses);
+        intereses.setLayout(interesesLayout);
+        interesesLayout.setHorizontalGroup(
+            interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 713, Short.MAX_VALUE)
+        );
+        interesesLayout.setVerticalGroup(
+            interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 347, Short.MAX_VALUE)
+        );
+
+        tab_loggedin.addTab("Intereses", intereses);
+
+        jLabel21.setText("Mis mensajes");
+
+        lista_mensajes_recibidos.setModel(new DefaultListModel());
+        jScrollPane9.setViewportView(lista_mensajes_recibidos);
+
+        lista_amigos_mensajes.setModel(new DefaultListModel());
+        jScrollPane10.setViewportView(lista_amigos_mensajes);
+
+        jLabel22.setText("Amigos");
+
+        texto_mensaje.setColumns(20);
+        texto_mensaje.setRows(5);
+        jScrollPane11.setViewportView(texto_mensaje);
+
+        jLabel23.setText("Mensaje");
+
+        jButton1.setText("Enviar");
+
+        mensaje_leer.setColumns(20);
+        mensaje_leer.setRows(5);
+        jScrollPane12.setViewportView(mensaje_leer);
+
+        javax.swing.GroupLayout mensajeLayout = new javax.swing.GroupLayout(mensaje);
+        mensaje.setLayout(mensajeLayout);
+        mensajeLayout.setHorizontalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23)
+                    .addComponent(jButton1))
+                .addGap(59, 59, 59)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+        mensajeLayout.setVerticalGroup(
+            mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mensajeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mensajeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mensajeLayout.createSequentialGroup()
+                        .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
+                        .addComponent(jButton1)))
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        tab_loggedin.addTab("Mensajes", mensaje);
 
         javax.swing.GroupLayout jd_loggedinLayout = new javax.swing.GroupLayout(jd_loggedin.getContentPane());
         jd_loggedin.getContentPane().setLayout(jd_loggedinLayout);
@@ -821,16 +916,77 @@ public class Principal_Panel extends javax.swing.JFrame {
             }
 
         }
+        if (tab_loggedin.getSelectedIndex() == 7) {
+            aP.cargarArchivo();
+            DefaultListModel m = (DefaultListModel) lista_amigos_mensajes.getModel();
+            if (m.isEmpty()) {
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getAmigos().size(); i++) {
+                            m.addElement(t.getAmigos().get(i));
+                        }
+                    }
+                    c++;
+                }
+                //jl_amigos_actuales.setModel(m2);
+            } else {
+                m.removeAllElements();
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getAmigos().size(); i++) {
+                            m.addElement(t.getAmigos().get(i));
+                        }
+                    }
+                    c++;
+                }
+            }
+            DefaultListModel m2 = (DefaultListModel) lista_mensajes_recibidos.getModel();
+            
+            if((aP.getListaPersonas().get(countglobal).getMensajes())==null){
+                ArrayList temp = new ArrayList();
+                aP.getListaPersonas().get(countglobal).setMensajes(temp);
+                
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getMensajes().size(); i++) {
+                            m2.addElement(t.getMensajes().get(i));
+                        }
+                    }
+                    c++;
+                }
+                aP.escribirArchivo();
+            }else{
+                m2.removeAllElements();
+                
+                
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getMensajes().size(); i++) {
+                            m2.addElement(t.getMensajes().get(i));
+                        }
+                    }
+                    c++;
+                }
+            }
+        }
 
     }//GEN-LAST:event_tab_loggedinStateChanged
 
     private void jlist_personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlist_personasMouseClicked
         // TODO add your handling code here:
-        if (evt.isMetaDown()) {
-            if (jlist_personas.getSelectedIndex()>=0) {
-
-            }
-        }
+        
     }//GEN-LAST:event_jlist_personasMouseClicked
 
     private void jb_mostrar_dataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_mostrar_dataMouseClicked
@@ -942,6 +1098,8 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JComboBox cb_premium_register;
     private javax.swing.JComboBox cb_sex_register;
     private javax.swing.JComboBox cb_users;
+    private javax.swing.JPanel intereses;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -955,6 +1113,9 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -965,6 +1126,9 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -972,6 +1136,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton jb_login_log;
     private javax.swing.JButton jb_mostrar_data;
@@ -992,6 +1157,10 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel lb_foto;
     private javax.swing.JLabel lb_icon2;
     private javax.swing.JLabel lb_icon3;
+    private javax.swing.JList lista_amigos_mensajes;
+    private javax.swing.JList lista_mensajes_recibidos;
+    private javax.swing.JPanel mensaje;
+    private javax.swing.JTextArea mensaje_leer;
     private javax.swing.JPasswordField pf_pass_login;
     private javax.swing.JPasswordField pf_pass_register;
     private javax.swing.JTextArea ta_descripcione;
@@ -1000,6 +1169,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JTextArea ta_jlist1;
     private javax.swing.JTextArea ta_log;
     private javax.swing.JTabbedPane tab_loggedin;
+    private javax.swing.JTextArea texto_mensaje;
     private javax.swing.JTextField tf_edad1;
     private javax.swing.JTextField tf_login_username;
     private javax.swing.JTextField tf_nombre1;
