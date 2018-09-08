@@ -91,6 +91,10 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jb_createdate = new javax.swing.JButton();
         intereses = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        jl_interests = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
         mensaje = new javax.swing.JPanel();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -492,15 +496,41 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         tab_loggedin.addTab("Calendario", jp_dates);
 
+        jLabel27.setText("Usuarios con Interes  comun");
+
+        jl_interests.setModel(new DefaultListModel());
+        jScrollPane16.setViewportView(jl_interests);
+
+        jButton1.setText("Ver");
+
         javax.swing.GroupLayout interesesLayout = new javax.swing.GroupLayout(intereses);
         intereses.setLayout(interesesLayout);
         interesesLayout.setHorizontalGroup(
             interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 713, Short.MAX_VALUE)
+            .addGroup(interesesLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel27)
+                    .addGroup(interesesLayout.createSequentialGroup()
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(jButton1)))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         interesesLayout.setVerticalGroup(
             interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 404, Short.MAX_VALUE)
+            .addGroup(interesesLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel27)
+                .addGroup(interesesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(interesesLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(interesesLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         tab_loggedin.addTab("Intereses", intereses);
@@ -1168,6 +1198,22 @@ public class Principal_Panel extends javax.swing.JFrame {
                 }
                 Block.setModel(m1);
         }
+        if (tab_loggedin.getSelectedIndex() == 6) {
+            aP.cargarArchivo();
+            DefaultListModel mod = (DefaultListModel) jl_interests.getModel();
+            mod.removeAllElements();
+            boolean void1 = false;
+            for (int i = 0; i < aP.getListaPersonas().size(); i++) {
+                 
+                if(void1){
+                    
+                }else{
+                  mod.addElement(aP.getListaPersonas().get(i));  
+                }
+            }
+            jl_interests.setModel(mod);
+            aP.escribirArchivo();
+        }
 
     }//GEN-LAST:event_tab_loggedinStateChanged
 
@@ -1444,6 +1490,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JComboBox cb_sex_register;
     private javax.swing.JComboBox cb_users;
     private javax.swing.JPanel intereses;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1463,6 +1510,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel46;
@@ -1480,6 +1528,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1502,6 +1551,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JDialog jd_loggedin;
     private javax.swing.JLabel jl_Nombre;
     private javax.swing.JList jl_amigos_actuales;
+    private javax.swing.JList jl_interests;
     private javax.swing.JList jl_personas_actuales;
     private javax.swing.JList jlist_personas;
     private javax.swing.JPanel jp_add;
