@@ -43,14 +43,22 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         jd_loggedin = new javax.swing.JDialog();
         tab_loggedin = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
+        jt_inicio = new javax.swing.JPanel();
         jl_Nombre = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lb_icon2 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_log = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
+        jp_add = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jl_personas_actuales = new javax.swing.JList();
+        jLabel16 = new javax.swing.JLabel();
+        jb_mover_lista = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jl_amigos_actuales = new javax.swing.JList();
+        Personas = new javax.swing.JLabel();
+        jp_infopeople = new javax.swing.JPanel();
         cb_users = new javax.swing.JComboBox();
         jLabel17 = new javax.swing.JLabel();
         tf_nombre1 = new javax.swing.JTextField();
@@ -58,22 +66,18 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         lb_icon3 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jb_agregar_amicos = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        ta_infoPersona_ip = new javax.swing.JTextArea();
+        jp_allpeopleinfo = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jlist_personas = new javax.swing.JList();
         jScrollPane5 = new javax.swing.JScrollPane();
         ta_jlist1 = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         jb_mostrar_data = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jl_amigos = new javax.swing.JList();
-        jLabel16 = new javax.swing.JLabel();
-        jb_mover_lista = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jl_interesados = new javax.swing.JList();
+        block = new javax.swing.JPanel();
+        jp_dates = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -120,18 +124,19 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         jLabel14.setText("Descripcione");
 
+        ta_log.setEditable(false);
         ta_log.setColumns(20);
         ta_log.setRows(5);
         jScrollPane3.setViewportView(ta_log);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jt_inicioLayout = new javax.swing.GroupLayout(jt_inicio);
+        jt_inicio.setLayout(jt_inicioLayout);
+        jt_inicioLayout.setHorizontalGroup(
+            jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jt_inicioLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jt_inicioLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
                         .addComponent(lb_icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,13 +147,13 @@ public class Principal_Panel extends javax.swing.JFrame {
                     .addComponent(jl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jt_inicioLayout.setVerticalGroup(
+            jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jt_inicioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                     .addComponent(jLabel13)
                     .addComponent(lb_icon2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,7 +161,63 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addContainerGap(181, Short.MAX_VALUE))
         );
 
-        tab_loggedin.addTab("Inicio", jPanel3);
+        tab_loggedin.addTab("Inicio", jt_inicio);
+
+        jl_personas_actuales.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jl_personas_actuales);
+
+        jLabel16.setText("Amigos");
+
+        jb_mover_lista.setText("->");
+        jb_mover_lista.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_mover_listaMouseClicked(evt);
+            }
+        });
+
+        jl_amigos_actuales.setModel(new DefaultListModel());
+        jScrollPane7.setViewportView(jl_amigos_actuales);
+
+        Personas.setText("Persona");
+
+        javax.swing.GroupLayout jp_addLayout = new javax.swing.GroupLayout(jp_add);
+        jp_add.setLayout(jp_addLayout);
+        jp_addLayout.setHorizontalGroup(
+            jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_addLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_addLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jb_mover_lista))
+                    .addComponent(Personas))
+                .addGap(36, 36, 36)
+                .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
+        jp_addLayout.setVerticalGroup(
+            jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_addLayout.createSequentialGroup()
+                .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_addLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jb_mover_lista))
+                    .addGroup(jp_addLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(Personas))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jp_addLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
+        tab_loggedin.addTab("Agregar Amigos", jp_add);
 
         cb_users.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -166,67 +227,78 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         jLabel17.setText("Nombre");
 
+        tf_nombre1.setEditable(false);
+
+        tf_edad1.setEditable(false);
+
         jLabel18.setText("Edad");
 
         lb_icon3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel19.setText("Fotografia");
 
-        jb_agregar_amicos.setText("Agregar ALERO");
-        jb_agregar_amicos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_agregar_amicosMouseClicked(evt);
-            }
-        });
+        jLabel20.setText("Descripcion");
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        ta_infoPersona_ip.setEditable(false);
+        ta_infoPersona_ip.setColumns(20);
+        ta_infoPersona_ip.setRows(5);
+        jScrollPane8.setViewportView(ta_infoPersona_ip);
+
+        javax.swing.GroupLayout jp_infopeopleLayout = new javax.swing.GroupLayout(jp_infopeople);
+        jp_infopeople.setLayout(jp_infopeopleLayout);
+        jp_infopeopleLayout.setHorizontalGroup(
+            jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_infopeopleLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addGap(18, 18, 18)
-                        .addComponent(lb_icon3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tf_nombre1)
-                            .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(172, 172, 172)
-                        .addComponent(jb_agregar_amicos)))
-                .addContainerGap(217, Short.MAX_VALUE))
+                .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jp_infopeopleLayout.createSequentialGroup()
+                        .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_infopeopleLayout.createSequentialGroup()
+                                .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tf_nombre1)
+                                    .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jp_infopeopleLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(18, 18, 18)
+                                .addComponent(lb_icon3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(82, 82, 82)
+                        .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel20)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        jp_infopeopleLayout.setVerticalGroup(
+            jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_infopeopleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jb_agregar_amicos))
+                .addComponent(cb_users, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tf_nombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel19)
-                    .addComponent(lb_icon3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(87, 87, 87))
+                .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jp_infopeopleLayout.createSequentialGroup()
+                        .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(tf_edad1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jp_infopeopleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel19)
+                            .addComponent(lb_icon3, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
+                        .addGap(87, 87, 87))
+                    .addGroup(jp_infopeopleLayout.createSequentialGroup()
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        tab_loggedin.addTab("Agregar Amigos", jPanel4);
+        tab_loggedin.addTab("Info Personas", jp_infopeople);
 
         jlist_personas.setModel(new DefaultListModel());
         jlist_personas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,96 +321,66 @@ public class Principal_Panel extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        javax.swing.GroupLayout jp_allpeopleinfoLayout = new javax.swing.GroupLayout(jp_allpeopleinfo);
+        jp_allpeopleinfo.setLayout(jp_allpeopleinfoLayout);
+        jp_allpeopleinfoLayout.setHorizontalGroup(
+            jp_allpeopleinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jb_mostrar_data)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jp_allpeopleinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+        jp_allpeopleinfoLayout.setVerticalGroup(
+            jp_allpeopleinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jp_allpeopleinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
+                    .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                         .addComponent(jLabel15)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jp_allpeopleinfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGroup(jp_allpeopleinfoLayout.createSequentialGroup()
                                 .addGap(123, 123, 123)
                                 .addComponent(jb_mostrar_data)))))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        tab_loggedin.addTab("Lista de personas", jPanel5);
+        tab_loggedin.addTab("Lista de personas", jp_allpeopleinfo);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout blockLayout = new javax.swing.GroupLayout(block);
+        block.setLayout(blockLayout);
+        blockLayout.setHorizontalGroup(
+            blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 713, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        blockLayout.setVerticalGroup(
+            blockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 347, Short.MAX_VALUE)
         );
 
-        tab_loggedin.addTab("Bloquear ", jPanel6);
+        tab_loggedin.addTab("Bloquear ", block);
 
-        jScrollPane6.setViewportView(jl_amigos);
-
-        jLabel16.setText("Amigos");
-
-        jb_mover_lista.setText("->");
-
-        jScrollPane7.setViewportView(jl_interesados);
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(jb_mover_lista)
-                        .addGap(36, 36, 36)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+        javax.swing.GroupLayout jp_datesLayout = new javax.swing.GroupLayout(jp_dates);
+        jp_dates.setLayout(jp_datesLayout);
+        jp_datesLayout.setHorizontalGroup(
+            jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 713, Short.MAX_VALUE)
         );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jb_mover_lista))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+        jp_datesLayout.setVerticalGroup(
+            jp_datesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 347, Short.MAX_VALUE)
         );
 
-        tab_loggedin.addTab("Amigos", jPanel7);
+        tab_loggedin.addTab("Calendario", jp_dates);
 
         javax.swing.GroupLayout jd_loggedinLayout = new javax.swing.GroupLayout(jd_loggedin.getContentPane());
         jd_loggedin.getContentPane().setLayout(jd_loggedinLayout);
@@ -697,14 +739,14 @@ public class Principal_Panel extends javax.swing.JFrame {
 
     private void tab_loggedinStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tab_loggedinStateChanged
         // TODO add your handling code here:
-        if (tab_loggedin.getSelectedIndex()==1) {
+        if (tab_loggedin.getSelectedIndex()==2) {
             aP.cargarArchivo();
             DefaultComboBoxModel modelo
                     = new DefaultComboBoxModel(
                             aP.getListaPersonas().toArray());
             cb_users.setModel(modelo);
         }
-        if (tab_loggedin.getSelectedIndex()==2) {
+        if (tab_loggedin.getSelectedIndex()==3) {
      
             DefaultListModel m = (DefaultListModel) jlist_personas.getModel();
             if (m.isEmpty()) {
@@ -725,10 +767,61 @@ public class Principal_Panel extends javax.swing.JFrame {
                     c++;
                 }
             }
-            
-            
-            
+
         }
+        if (tab_loggedin.getSelectedIndex() == 1) {
+            aP.cargarArchivo();
+            DefaultListModel n = (DefaultListModel) jl_personas_actuales.getModel();
+            if (n.isEmpty()) {
+                int c = 0;
+                for (Persona p : aP.getListaPersonas()) {
+                    if (c != countglobal) {
+                        n.addElement(aP.getListaPersonas().get(c));
+                    }
+                    c++;
+                }
+            } else {
+                n.removeAllElements();
+                int c = 0;
+                for (Persona p : aP.getListaPersonas()) {
+                    if (c != countglobal) {
+                        n.addElement(aP.getListaPersonas().get(c));
+                    }
+                    c++;
+                }
+            }
+            
+            DefaultListModel m2 = (DefaultListModel) jl_amigos_actuales.getModel();
+            if (m2.isEmpty()) {
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getAmigos().size(); i++) {
+                            m2.addElement(t.getAmigos().get(i));
+                        }
+                    }
+                    c++;
+                }
+                //jl_amigos_actuales.setModel(m2);
+            } else {
+                m2.removeAllElements();
+                String user = aP.getListaPersonas().get(countglobal).getUser();
+                int c = 0;
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate = aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        for (int i = 0; i < t.getAmigos().size(); i++) {
+                            m2.addElement(t.getAmigos().get(i));
+                        }
+                    }
+                    c++;
+                }
+            }
+
+        }
+
     }//GEN-LAST:event_tab_loggedinStateChanged
 
     private void jlist_personasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlist_personasMouseClicked
@@ -774,16 +867,39 @@ public class Principal_Panel extends javax.swing.JFrame {
             tf_nombre1.setText(temp.getNombre());
             tf_edad1.setText(Integer.toString(temp.getEdad()));
             lb_icon3.setIcon(temp.getFotografia());
+            ta_infoPersona_ip.setText(temp.getDescripzione());
         }
     }//GEN-LAST:event_cb_usersItemStateChanged
 
-    private void jb_agregar_amicosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_agregar_amicosMouseClicked
+    private void jb_mover_listaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_mover_listaMouseClicked
         // TODO add your handling code here:
-        aP.cargarArchivo();
-        ArrayList <Persona> amigos = new ArrayList();
-        amigos.add((Persona) cb_users.getSelectedItem());
-        aP.getListaPersonas().get(countglobal).setAmigos(amigos);
-    }//GEN-LAST:event_jb_agregar_amicosMouseClicked
+        try {
+            aP.cargarArchivo();
+            if (jl_personas_actuales.getSelectedIndex() >= 0) {
+                DefaultListModel m = (DefaultListModel) jl_personas_actuales.getModel();
+                DefaultListModel m2 = (DefaultListModel) jl_amigos_actuales.getModel();
+                int c=0;
+                ArrayList<Persona> tempam = new ArrayList();
+                
+                String user=aP.getListaPersonas().get(countglobal).getUser();
+                for (Persona t : aP.getListaPersonas()) {
+                    String uservalidate=aP.getListaPersonas().get(c).getUser();
+                    if (user.equals(uservalidate)) {
+                        t.getAmigos().add((Persona) m.get(jl_personas_actuales.getSelectedIndex()));
+                        m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
+                        tempam.add(((Persona) m.get(jl_personas_actuales.getSelectedIndex())));
+                    }
+                    c++;
+                }
+                jl_amigos_actuales.setModel(m2);
+                m.remove(jl_personas_actuales.getSelectedIndex());
+                jl_personas_actuales.setModel(m);
+                aP.getListaPersonas().get(countglobal).setAmigos(tempam);
+                aP.escribirArchivo();
+            }
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_jb_mover_listaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -821,6 +937,8 @@ public class Principal_Panel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Personas;
+    private javax.swing.JPanel block;
     private javax.swing.JComboBox cb_premium_register;
     private javax.swing.JComboBox cb_sex_register;
     private javax.swing.JComboBox cb_users;
@@ -836,6 +954,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -845,11 +964,6 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -857,8 +971,8 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JButton jb_agregar_amicos;
     private javax.swing.JButton jb_login_log;
     private javax.swing.JButton jb_mostrar_data;
     private javax.swing.JButton jb_mover_lista;
@@ -866,16 +980,22 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JButton jb_seleccionar;
     private javax.swing.JDialog jd_loggedin;
     private javax.swing.JLabel jl_Nombre;
-    private javax.swing.JList jl_amigos;
-    private javax.swing.JList jl_interesados;
+    private javax.swing.JList jl_amigos_actuales;
+    private javax.swing.JList jl_personas_actuales;
     private javax.swing.JList jlist_personas;
+    private javax.swing.JPanel jp_add;
+    private javax.swing.JPanel jp_allpeopleinfo;
+    private javax.swing.JPanel jp_dates;
+    private javax.swing.JPanel jp_infopeople;
     private javax.swing.JSpinner js_edad_register;
+    private javax.swing.JPanel jt_inicio;
     private javax.swing.JLabel lb_foto;
     private javax.swing.JLabel lb_icon2;
     private javax.swing.JLabel lb_icon3;
     private javax.swing.JPasswordField pf_pass_login;
     private javax.swing.JPasswordField pf_pass_register;
     private javax.swing.JTextArea ta_descripcione;
+    private javax.swing.JTextArea ta_infoPersona_ip;
     private javax.swing.JTextArea ta_intereses;
     private javax.swing.JTextArea ta_jlist1;
     private javax.swing.JTextArea ta_log;
