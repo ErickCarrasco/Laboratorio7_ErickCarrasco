@@ -50,6 +50,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         ta_log = new javax.swing.JTextArea();
+        boton_logout = new javax.swing.JButton();
         jp_add = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jl_personas_actuales = new javax.swing.JList();
@@ -89,10 +90,17 @@ public class Principal_Panel extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         texto_mensaje = new javax.swing.JTextArea();
         jLabel23 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jb_enviarMensaje = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         mensaje_leer = new javax.swing.JTextArea();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        tf_login_username = new javax.swing.JTextField();
+        jb_login_log = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        pf_pass_login = new javax.swing.JPasswordField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tf_registro_nombre = new javax.swing.JTextField();
@@ -116,13 +124,6 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ta_intereses = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        tf_login_username = new javax.swing.JTextField();
-        jb_login_log = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        pf_pass_login = new javax.swing.JPasswordField();
 
         tab_loggedin.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -143,6 +144,13 @@ public class Principal_Panel extends javax.swing.JFrame {
         ta_log.setRows(5);
         jScrollPane3.setViewportView(ta_log);
 
+        boton_logout.setText("Log out");
+        boton_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_logoutMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jt_inicioLayout = new javax.swing.GroupLayout(jt_inicio);
         jt_inicio.setLayout(jt_inicioLayout);
         jt_inicioLayout.setHorizontalGroup(
@@ -150,15 +158,18 @@ public class Principal_Panel extends javax.swing.JFrame {
             .addGroup(jt_inicioLayout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jt_inicioLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
-                        .addComponent(lb_icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jl_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jt_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(boton_logout)
+                            .addGroup(jt_inicioLayout.createSequentialGroup()
+                                .addComponent(lb_icon2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(86, 86, 86)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
         jt_inicioLayout.setVerticalGroup(
@@ -172,7 +183,9 @@ public class Principal_Panel extends javax.swing.JFrame {
                     .addComponent(jLabel13)
                     .addComponent(lb_icon2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14))
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addComponent(boton_logout)
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         tab_loggedin.addTab("Inicio", jt_inicio);
@@ -425,7 +438,12 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         jLabel23.setText("Mensaje");
 
-        jButton1.setText("Enviar");
+        jb_enviarMensaje.setText("Enviar");
+        jb_enviarMensaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_enviarMensajeMouseClicked(evt);
+            }
+        });
 
         mensaje_leer.setColumns(20);
         mensaje_leer.setRows(5);
@@ -444,7 +462,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23)
-                    .addComponent(jButton1))
+                    .addComponent(jb_enviarMensaje))
                 .addGap(59, 59, 59)
                 .addGroup(mensajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel21)
@@ -471,7 +489,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                             .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
-                        .addComponent(jButton1)))
+                        .addComponent(jb_enviarMensaje)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -495,6 +513,59 @@ public class Principal_Panel extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel8.setFont(new java.awt.Font("Eurostile Extended", 3, 24)); // NOI18N
+        jLabel8.setText("LOG IN");
+
+        jLabel9.setText("User Name:");
+
+        jb_login_log.setText("Log in");
+        jb_login_log.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jb_login_logMouseClicked(evt);
+            }
+        });
+
+        jLabel10.setText("Password");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jb_login_log)
+                            .addComponent(tf_login_username)
+                            .addComponent(pf_pass_login, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
+                .addContainerGap(265, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(tf_login_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(pf_pass_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addComponent(jb_login_log)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Log in", jPanel2);
 
         jLabel1.setText("Nombre");
 
@@ -642,59 +713,6 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Registro", jPanel1);
 
-        jLabel8.setFont(new java.awt.Font("Eurostile Extended", 3, 24)); // NOI18N
-        jLabel8.setText("LOG IN");
-
-        jLabel9.setText("User Name:");
-
-        jb_login_log.setText("Log in");
-        jb_login_log.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jb_login_logMouseClicked(evt);
-            }
-        });
-
-        jLabel10.setText("Password");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jb_login_log)
-                            .addComponent(tf_login_username)
-                            .addComponent(pf_pass_login, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))))
-                .addContainerGap(265, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel8)
-                .addGap(32, 32, 32)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(tf_login_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(pf_pass_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
-                .addComponent(jb_login_log)
-                .addContainerGap())
-        );
-
-        jTabbedPane1.addTab("Log in", jPanel2);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -777,6 +795,7 @@ public class Principal_Panel extends javax.swing.JFrame {
             tf_username_register.setText("");
             ta_descripcione.setText("");
             ta_intereses.setText("");
+            pf_pass_register.setText("");
         }else{
             if (validador1==false) {
                 JOptionPane.showMessageDialog(this, "Usuario ya ocupado");
@@ -1035,7 +1054,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 DefaultListModel m = (DefaultListModel) jl_personas_actuales.getModel();
                 DefaultListModel m2 = (DefaultListModel) jl_amigos_actuales.getModel();
                 int c=0;
-                ArrayList<Persona> tempam = new ArrayList();
+                
                 
                 String user=aP.getListaPersonas().get(countglobal).getUser();
                 for (Persona t : aP.getListaPersonas()) {
@@ -1043,19 +1062,61 @@ public class Principal_Panel extends javax.swing.JFrame {
                     if (user.equals(uservalidate)) {
                         t.getAmigos().add((Persona) m.get(jl_personas_actuales.getSelectedIndex()));
                         m2.addElement(t.getAmigos().get(t.getAmigos().size() - 1));
-                        tempam.add(((Persona) m.get(jl_personas_actuales.getSelectedIndex())));
+                        if (t.getAmigos()!=null) {
+                            t.getAmigos().add(((Persona) m.get(jl_personas_actuales.getSelectedIndex())));
+                            
+                        }else{
+                            ArrayList<Persona> tempam = new ArrayList();
+                            tempam.add(((Persona) m.get(jl_personas_actuales.getSelectedIndex())));
+                            t.setAmigos(tempam);
+                        }
+                        
                     }
                     c++;
                 }
                 jl_amigos_actuales.setModel(m2);
                 m.remove(jl_personas_actuales.getSelectedIndex());
                 jl_personas_actuales.setModel(m);
-                aP.getListaPersonas().get(countglobal).setAmigos(tempam);
+                
                 aP.escribirArchivo();
             }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jb_mover_listaMouseClicked
+
+    private void boton_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_logoutMouseClicked
+        // TODO add your handling code here:
+        jd_loggedin.dispose();
+        jd_loggedin.setVisible(false);
+    }//GEN-LAST:event_boton_logoutMouseClicked
+
+    private void jb_enviarMensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jb_enviarMensajeMouseClicked
+        // TODO add your handling code here:
+        if (lista_amigos_mensajes.getSelectedIndex() >= 0) {
+            aP.cargarArchivo();
+            DefaultListModel modeloLISTA
+                    = (DefaultListModel) lista_amigos_mensajes.getModel();
+            String user=((Persona) modeloLISTA.get(
+                    lista_amigos_mensajes.getSelectedIndex())).getUser();
+            int c = 0;
+            int cv = 0;
+            for (Persona t : aP.getListaPersonas()) {
+                String uservalidate = aP.getListaPersonas().get(c).getUser();
+                if (uservalidate.equals(user)) {
+                    cv = c;
+                }
+            }
+
+            if (aP.getListaPersonas().get(cv).getMensajes() != null) {
+                aP.getListaPersonas().get(cv).getMensajes().add(texto_mensaje.getText());
+
+            } else {
+                ArrayList temporary = new ArrayList();
+                temporary.add(texto_mensaje.getText());
+                aP.getListaPersonas().get(cv).setMensajes(temporary);
+            }
+        }
+    }//GEN-LAST:event_jb_enviarMensajeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1095,11 +1156,11 @@ public class Principal_Panel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Personas;
     private javax.swing.JPanel block;
+    private javax.swing.JButton boton_logout;
     private javax.swing.JComboBox cb_premium_register;
     private javax.swing.JComboBox cb_sex_register;
     private javax.swing.JComboBox cb_users;
     private javax.swing.JPanel intereses;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1138,6 +1199,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jb_enviarMensaje;
     private javax.swing.JButton jb_login_log;
     private javax.swing.JButton jb_mostrar_data;
     private javax.swing.JButton jb_mover_lista;
